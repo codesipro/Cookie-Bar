@@ -2,6 +2,8 @@
 	
 namespace StudioBonito\CookieBar;
 
+use SilverStripe\Assets\Image;
+use SilverStripe\AssetAdmin\Forms\UploadField;
 use SilverStripe\CMS\Model\SiteTree;
 use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\CheckboxField;
