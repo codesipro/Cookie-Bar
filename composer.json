@@ -29,5 +29,5 @@
             "studiobonito\\Cookie-Bar\\Tests\\": "tests/"
         }
     },
-    "prefer-stable": true,
+    "prefer-stable": true
 }
