@@ -1,0 +1,10 @@
+---
+Name: 'cookiebar'
+---
+SilverStripe\CMS\Model\SiteTree:
+  extensions:
+    - StudioBonito\CookieBar\CookiePageExtension
+    - StudioBonito\CookieBar\CookieSiteConfig
+Director:
+  rules:
+    CookieBarController::URLSegment => CookieBarController::class
