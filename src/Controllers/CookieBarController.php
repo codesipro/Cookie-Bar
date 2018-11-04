@@ -1,10 +1,16 @@
 <?php
 
-class CookieBarController extends Page_Controller
+namespace StudioBonito\CookieBar;
+
+use PageController;
+use SilverStripe\Control\Cookie;
+use SilverStripe\Control\Director;
+
+class CookieBarController extends PageController
 {
 	const URLSegment = "cookiebar";
 
-	static $allowed_actions = array(
+	private static $allowed_actions = array(
 		"accept"
 	);
 
@@ -24,7 +30,7 @@ class CookieBarController extends Page_Controller
 		}
 		else 
 		{
-			return Director::redirectBack();
+			return $this->redirect($request->getVar('redirect'));
 		}
 	}
 }

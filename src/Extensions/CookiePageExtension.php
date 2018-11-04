@@ -1,5 +1,14 @@
 <?php
 
+namespace StudioBonito\CookieBar;
+
+use SilverStripe\SiteConfig\SiteConfig;
+use SilverStripe\Control\Cookie;
+use SilverStripe\View\Requirements;
+use SilverStripe\Control\Controller;
+use SilverStripe\Control\Director;
+use SilverStripe\ORM\DataExtension;	
+
 class CookiePageExtension extends DataExtension 
 {
 	/**
@@ -70,7 +79,8 @@ class CookiePageExtension extends DataExtension
 	 * @return String
 	 */
 	public function getAcceptCookiesLink()
-	{
-		return Director::baseURL() . CookieBarController::URLSegment . '/accept';
+{
+		$controller = Controller::curr();
+		return Director::baseURL() . CookieBarController::URLSegment . '/accept?redirect=' . urlencode($controller->Link());
 	}
 }
