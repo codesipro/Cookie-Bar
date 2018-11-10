@@ -1,5 +1,5 @@
 <?php
-	
+
 namespace StudioBonito\CookieBar;
 
 use SilverStripe\Assets\Image;
@@ -11,9 +11,9 @@ use SilverStripe\Forms\TreeDropdownField;
 use SilverStripe\Forms\TextField;
 use SilverStripe\Forms\HTMLEditor\HTMLEditorField;
 use SilverStripe\ORM\DataExtension;
-	
+
 /****************
- * 
+ *
  * Add cookie config options to site config
  *
  * Studio Bonito
@@ -22,7 +22,7 @@ use SilverStripe\ORM\DataExtension;
  * Extended from the work by:
  * Aab Web
  * www.aabweb.co.uk
- * 
+ *
  * author: Steve Heyes, Craig Ballantyne
  * date: 23.10.2012
  * version: 1.1.0
@@ -30,7 +30,7 @@ use SilverStripe\ORM\DataExtension;
  * Update for Silverstripe 4 4.11.2018
  * Codesipro
  */
-class CookieSiteConfig extends DataExtension 
+class CookieSiteConfig extends DataExtension
 {
 	private static $db = array(
 		'CookieBarTitle' => 'Varchar(255)',
@@ -50,12 +50,12 @@ class CookieSiteConfig extends DataExtension
 		'CookieMoreText' => 'Read more about Cookies',
 		'CookieBarContent' => '<p><strong>Like most websites we uses cookies</strong>. In order to deliver a personalised, responsive service and to improve the site, we remember and store information about how you use it. This is done using simple text files called cookies which sit on your computer. These cookies are completely safe and secure and will never contain any sensitive information. They are used only by us.</p>',
 	);
-	
+
 	public function updateCMSFields(FieldList $fields)
 	{
 		$fields->addFieldToTab('Root.CookieBar', CheckboxField::create('CookieBarEnable', 'Enable Cookie Bar'));
 
-		$fields->addFieldToTab('Root.CookieBar', TreeDropdownField::create('CookiePageID', 'Cookie Information Page', 'SiteTree'));
+		$fields->addFieldToTab('Root.CookieBar', TreeDropdownField::create('CookiePageID', 'Cookie Information Page', SiteTree::class));
 		$fields->addFieldToTab('Root.CookieBar', TextField::create('CookieCloseText', 'Accept/Close Link Text'));
 		$fields->addFieldToTab('Root.CookieBar', TextField::create('CookieMoreText', 'More Information Link Text'));
 
